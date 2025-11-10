@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oração - Receba uma oração nova todos os dias</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 30px 20px;
+            background-color: #fff;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #666;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - 86px);
+            padding: 40px 20px;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Jesus Image */
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: contain;
+        }
+
+        /* Card */
+        .hero-card {
+            flex: 1;
+            background: #fff;
+            border-radius: 20px;
+            padding: 60px 50px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+        }
+
+        .hero-card h1 {
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 1.5;
+            margin-bottom: 40px;
+            color: #1a1a1a;
+        }
+
+        .hero-card button {
+            background-color: #6b7280;
+            color: #fff;
+            border: none;
+            padding: 18px 50px;
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .hero-card button:hover {
+            background-color: #4b5563;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-card button:active {
+            transform: translateY(0);
+        }
+
+        /* Added Recomendados section styles */
+        /* Recomendados Section */
+        .recomendados {
+            background-color: #fff;
+            padding: 60px 20px;
+            margin-top: 0;
+        }
+
+        .recomendados-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .recomendados h2 {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            color: #1a1a1a;
+        }
+
+        .recomendados-grid {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            align-items: stretch;
+        }
+
+        .recomendado-card {
+            flex: 1;
+            max-width: 280px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .recomendado-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .recomendado-card img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .recomendado-card button {
+            margin-top: 20px;
+            background-color: #6b7280;
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: lowercase;
+        }
+
+        .recomendado-card button:hover {
+            background-color: #4b5563;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .recomendado-card button:active {
+            transform: translateY(0);
+        }
+        /* </CHANGE> */
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .hero-image img {
+                max-height: 350px;
+            }
+
+            .hero-card {
+                max-width: 100%;
+            }
+
+            /* Added responsive styles for Recomendados section */
+            .recomendados-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .recomendado-card {
+                max-width: 350px;
+            }
+            /* </CHANGE> */
+        }
+
+        @media (max-width: 640px) {
+            nav {
+                gap: 25px;
+                padding: 20px;
+            }
+
+            nav a {
+                font-size: 14px;
+            }
+
+            .hero-card {
+                padding: 40px 30px;
+            }
+
+            .hero-card h1 {
+                font-size: 20px;
+                margin-bottom: 30px;
+            }
+
+            .hero-card button {
+                padding: 16px 40px;
+                font-size: 14px;
+            }
+
+            /* Added mobile responsive styles for Recomendados */
+            .recomendados h2 {
+                font-size: 24px;
+                margin-bottom: 30px;
+            }
+
+            .recomendados {
+                padding: 40px 20px;
+            }
+            /* </CHANGE> */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html">oração</a>
+        <a href="doacao.html">doação</a>
+        <a href="sobre.html">sobre</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Jesus Image -->
+        <div class="hero-image">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image%20%281%29-6FZbXM6qI9kT6AccKAHJHaoR0f4Tnf.png" alt="Jesus Cristo">
+        </div>
+
+        <!-- Card -->
+        <div class="hero-card">
+            <h1>Receba uma oração nova todos os dias.</h1>
+            <button onclick="verOracao()">VER ORAÇÃO</button>
+        </div>
+    </section>
+
+    <!-- Added Recomendados section below hero -->
+    <!-- Recomendados Section -->
+    <section class="recomendados">
+        <div class="recomendados-container">
+            <h2>Recomendados</h2>
+            <div class="recomendados-grid">
+                <div class="recomendado-card">
+                    <img src="" alt="Com Cristo - Nunca mais eu pequei em paz">
+                    <button onclick="window.open('https://pay.kiwify.com.br/sgbvDHC?afid=RlEHdYx0', '_blank')">saiba mais</button>
+                </div>
+                <div class="recomendado-card">
+                    <img src="" alt="O Manual Para Quando Você Duvida de Tudo">
+                    <button onclick="window.open('https://pay.kiwify.com.br/3sF5KsC', '_blank')">saiba mais</button>
+                </div>
+                <div class="recomendado-card">
+                    <img src="" alt="Pare de fingir que está tudo bem com Deus">
+                    <button onclick="window.open('https://pay.kiwify.com.br/RXDp6IL', '_blank')">saiba mais</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- </CHANGE> -->
+
+    <script>
+        // CONFIGURAÇÃO DAS ORAÇÕES
+const oracoes = [
+  {
+    id: 1,
+    titulo: "Oração pela Paz Interior",
+    texto: "Senhor da Calma, que acalmaste a tempestade no mar, Volta Teu olhar para o mar agitado do meu coração. A minha mente está repleta de preocupações e o medo tenta me dominar.\n\nEntrego em Tuas mãos todo este turbilhão de pensamentos. Afasta de mim o espírito de angústia e substitui minha inquietação pela Tua paz que ultrapassa todo entendimento. Ajuda-me a respirar fundo e a lembrar que Tu estás no controle, mesmo quando tudo parece caótico. Ensina-me a confiar não na minha própria força, mas no Teu amor infalível que nunca me abandona.\n\nAmém.",
+    tema: "Paz"
+  },
+  {
+    id: 2,
+    titulo: "Oração de Gratidão ao Final do Dia",
+    texto: "Pai de Bondade, fonte de todo bem, Ao encerrar este dia, venho a Ti com um coração transbordante de gratidão.\n\nObrigado(a) pelos dons simples e preciosos: Pelo sol que aqueceu a terra, pelo alimento que me sustentou, pelo teto que me abrigou. Obrigado(a) pelas pessoas que cruzaram o meu caminho, pelos sorrisos trocados, pelos desafios que me fizeram crescer. Obrigado(a) até mesmo pelas dificuldades, pois nelas pude sentir a Tua mão a me sustentar.\n\nPerdoa as minhas falhas e aceita o meu cansaço como uma oferenda. Que o meu sono seja reparador e que eu descanse sob o abrigo das Tuas asas, renovado(a) em esperança para um novo dia.\n\nAmém.",
+    tema: "Gratidão"
+  },
+  {
+    id: 3,
+    titulo: "Oração pela Família e Amigos",
+    texto: "Deus da Comunhão, que nos chamas a viver em amor, Hoje elevo a Ti as pessoas mais preciosas da minha vida.\n\nAbençoa a minha família. Concede-lhe saúde, união e entendimento mútuo. Que o nosso lar seja um refúgio de amor, perdão e alegria genuína. Protege os meus amigos, essa família que o coração escolheu. Sê para eles companhia na solidão, força nas provações e luz nas suas jornadas.\n\nGuia-nos, protege-nos e mantém-nos sempre unidos pelos laços do amor e do respeito. Que saibamos ser, uns para os outros, um reflexo do Teu cuidado infinito.\n\nAmém.",
+    tema: "Família"
+  },
+  {
+    id: 4,
+    titulo: "Oração de Cura e Renovação",
+    texto: "Divino Médico das almas e dos corpos, Dirijo a Ti o meu clamor por cura e renovação.\n\nSe é a minha saúde física que está debilitada, imploro que touches este corpo com Tua graça restauradora. Mas, mais do que tudo, cura as feridas da minha alma: as mágoas passadas, as deceções escondidas, as tristezas que pesam no meu peito.\n\nConverte minha dor em sabedoria, meu desânimo em resiliência e minha fraqueza em ponto de encontro com a Tua força. Que eu experimente o poder do Teu amor sanador, e que, renovado(a) por Ti, eu possa ser um testemunho de esperança para outros que também sofrem.\n\nAmém.",
+    tema: "Cura"
+  },
+  {
+    id: 5,
+    titulo: "Oração da Manhã",
+    texto: "Senhor da Vida e do Tempo, ao despertar para este novo dia, te agradeço pelo dom da vida e pelo sopro renovado em meu ser.\n\nConcede-me a sabedoria para viver cada hora com propósito, a paciência para enfrentar os imprevistos, e a gratidão para reconhecer Tuas bênçãos disfarçadas.\n\nQue meus olhos vejam oportunidades onde houver desafios, que minhas mãos sirvam com amor, e que meu coração mantenha-se aberto à Tua orientação.\n\nFaze de mim hoje um instrumento da Tua paz e bondade.\n\nAmém.",
+    tema: "Manhã"
+  }
+];
+
+// DATA DE INÍCIO DO SITE (pode mudar para quando você lançar)
+const DATA_INICIO = new Date('2025-11-09');
+
+// SISTEMA DE ORAÇÃO DO DIA
+function getOracaoDoDia() {
+  const hoje = new Date();
+  const diferencaMs = hoje - DATA_INICIO;
+  const diasPassados = Math.floor(diferencaMs / (1000 * 60 * 60 * 24));
+  const indiceOracao = diasPassados % oracoes.length;
+  return oracoes[indiceOracao];
+}
+
+// CRONÔMETRO PARA PRÓXIMA ORAÇÃO
+function atualizarCronometro() {
+  const agora = new Date();
+  const amanha = new Date(agora);
+  amanha.setDate(agora.getDate() + 1);
+  amanha.setHours(0, 0, 0, 0);
+  
+  const diferenca = amanha - agora;
+  const horas = Math.floor(diferenca / (1000 * 60 * 60));
+  const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+  const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+  
+  return `${horas.toString().padStart(2, '0')}:${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
+}
+
+// POPUP DA ORAÇÃO
+function verOracao() {
+  const oracao = getOracaoDoDia();
+  
+  // Criar overlay do popup
+  const overlay = document.createElement('div');
+  overlay.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+  `;
+  
+  // Criar conteúdo do popup
+  const popup = document.createElement('div');
+  popup.style.cssText = `
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  `;
+  
+  const cronometro = atualizarCronometro();
+  
+  popup.innerHTML = `
+    <button onclick="this.closest('.popup-overlay').remove()" style="
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: #666;
+    ">×</button>
+    
+    <h2 style="color: #1a1a1a; margin-bottom: 10px; font-size: 24px;">${oracao.titulo}</h2>
+    <div style="display: flex; gap: 15px; margin-bottom: 25px; flex-wrap: wrap;">
+      <span style="background: #f0f0f0; padding: 5px 12px; border-radius: 15px; font-size: 12px; color: #666;">${oracao.tema}</span>
+      <span style="background: #e8f5e8; padding: 5px 12px; border-radius: 15px; font-size: 12px; color: #2d5a2d;">Oração do Dia</span>
+    </div>
+    
+    <div style="
+      background: #f9f9f9;
+      padding: 30px;
+      border-radius: 15px;
+      margin-bottom: 25px;
+      line-height: 1.8;
+      color: #444;
+      font-size: 16px;
+      white-space: pre-line;
+    ">${oracao.texto}</div>
+    
+    <div style="
+      background: #f0f7ff;
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
+      border: 1px solid #d0e3ff;
+    ">
+      <div style="font-size: 14px; color: #666; margin-bottom: 8px;">Próxima oração em:</div>
+      <div id="cronometro" style="font-size: 28px; font-weight: bold; color: #1a1a1a; font-family: monospace;">${cronometro}</div>
+    </div>
+  `;
+  
+  overlay.appendChild(popup);
+  overlay.className = 'popup-overlay';
+  document.body.appendChild(overlay);
+  
+  // Atualizar cronômetro a cada segundo
+  const cronometroElement = document.getElementById('cronometro');
+  setInterval(() => {
+    cronometroElement.textContent = atualizarCronometro();
+  }, 1000);
+  
+  // Fechar popup clicando fora
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+      overlay.remove();
+    }
+  });
+}
+
+function saibaMais(item) {
+  alert('Mais informações sobre ' + item + ' em breve!');
+}
+
+// Smooth scroll para os links de navegação
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', function(e) {
+    const targetId = this.getAttribute('href').substring(1);
+    console.log('Navegando para:', targetId);
+  });
+});
+
+// Atualizar automaticamente quando passar das 00:00
+setInterval(() => {
+  const agora = new Date();
+  if (agora.getHours() === 0 && agora.getMinutes() === 0 && agora.getSeconds() === 0) {
+    // Se tiver popup aberto, recarregar a oração
+    const popup = document.querySelector('.popup-overlay');
+    if (popup) {
+      popup.remove();
+      setTimeout(verOracao, 1000);
+    }
+  }
+}, 1000);
+    </script>
+</body>
+</html>
